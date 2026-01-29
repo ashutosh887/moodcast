@@ -1,7 +1,7 @@
 ---
 name: moodcast
 description: Transform any text into emotionally expressive audio with ambient soundscapes using ElevenLabs v3 audio tags and Sound Effects API
-metadata: {"moltbot":{"requires":{"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY","emoji":"🎭"}}
+metadata: {"moltbot":{"requires":{"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY","homepage":"https://github.com/ashutosh887/moodcast"}}
 ---
 
 # MoodCast
