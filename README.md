@@ -142,74 +142,56 @@ python3 moodcast.py --text "Plain text" --no-enhance
 
 ## Demo Examples
 
-Here are some real-world examples showcasing MoodCast's capabilities:
-
 ### Example 1: Dramatic News with Enhanced Text Display
-Shows emotion tags being added automatically, then plays expressive audio.
 
+**Managed skills (MoltHub):**
 ```bash
-# If installed via MoltHub (managed skills)
-python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py \
-  --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." \
-  --mood dramatic \
-  --show-enhanced
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "Breaking news! Scientists discovered something incredible. This changes everything..." --mood dramatic --show-enhanced
+```
 
-# If cloned to workspace (workspace skills)
-python3 ./skills/moodcast/scripts/moodcast.py \
-  --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." \
-  --mood dramatic \
-  --show-enhanced
+**Workspace skills:**
+```bash
+python3 ./skills/moodcast/scripts/moodcast.py --text "Breaking news! Scientists discovered something incredible. This changes everything..." --mood dramatic --show-enhanced
+```
 
-# If running from repo root
-python3 scripts/moodcast.py \
-  --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." \
-  --mood dramatic \
-  --show-enhanced
+**Repo root:**
+```bash
+python3 scripts/moodcast.py --text "Breaking news! Scientists discovered something incredible. This changes everything..." --mood dramatic --show-enhanced
 ```
 
 ### Example 2: Scary Story with Ambient Sound
-Demonstrates two APIs working together - TTS + Sound Effects API.
 
+**Managed skills (MoltHub):**
 ```bash
-# If installed via MoltHub (managed skills)
-python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py \
-  --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" \
-  --mood scary \
-  --ambient "creepy horror atmosphere wind howling"
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "It was a dark night. The house creaked. Something moved in the shadows..." --mood scary --ambient "creepy horror atmosphere"
+```
 
-# If cloned to workspace (workspace skills)
-python3 ./skills/moodcast/scripts/moodcast.py \
-  --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" \
-  --mood scary \
-  --ambient "creepy horror atmosphere wind howling"
+**Workspace skills:**
+```bash
+python3 ./skills/moodcast/scripts/moodcast.py --text "It was a dark night. The house creaked. Something moved in the shadows..." --mood scary --ambient "creepy horror atmosphere"
+```
 
-# If running from repo root
-python3 scripts/moodcast.py \
-  --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" \
-  --mood scary \
-  --ambient "creepy horror atmosphere wind howling"
+**Repo root:**
+```bash
+python3 scripts/moodcast.py --text "It was a dark night. The house creaked. Something moved in the shadows..." --mood scary --ambient "creepy horror atmosphere"
 ```
 
 ### Pre-generating Audio Files
 
-For demos or presentations, you can pre-generate audio files:
-
+**Managed skills (MoltHub):**
 ```bash
-# Generate dramatic news audio
-python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py \
-  --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." \
-  --mood dramatic \
-  --output demo1.mp3
-
-# Generate scary story with ambient sound
-python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py \
-  --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" \
-  --mood scary \
-  --ambient "creepy horror atmosphere wind howling" \
-  --output demo2.mp3
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "Your text here" --mood dramatic --output demo.mp3
 ```
 
-*Note: Adjust the path based on your installation method (managed skills, workspace skills, or repo root).*
+**Workspace skills:**
+```bash
+python3 ./skills/moodcast/scripts/moodcast.py --text "Your text here" --mood dramatic --output demo.mp3
+```
+
+**Repo root:**
+```bash
+python3 scripts/moodcast.py --text "Your text here" --mood dramatic --output demo.mp3
+```
 
 ---
 
