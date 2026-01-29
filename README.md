@@ -4,7 +4,7 @@
 
 MoodCast is a [Moltbot](https://molt.bot) skill that uses ElevenLabs' most advanced features to create compelling audio content. It analyzes your text, adds emotional expression using Eleven v3 audio tags, and can layer ambient soundscapes for immersive experiences.
 
-[![Demo Video](https://img.shields.io/badge/Demo-Watch%20Video-red?style=for-the-badge&logo=youtube)](YOUR_VIDEO_LINK_HERE)
+[![Demo Video](https://img.shields.io/badge/Demo-Watch%20Video-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=ExWn-ImRYMM)
 [![Moltbot Skill](https://img.shields.io/badge/Moltbot-Skill-blue?style=for-the-badge)](https://clawdhub.com/ashutosh887/moodcast)
 [![ElevenLabs](https://img.shields.io/badge/Powered%20by-ElevenLabs-purple?style=for-the-badge)](https://elevenlabs.io)
 
