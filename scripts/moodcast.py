@@ -82,7 +82,7 @@ def get_client() -> ElevenLabs:
     """Initialize ElevenLabs client."""
     api_key = os.environ.get("ELEVENLABS_API_KEY")
     if not api_key:
-        print("❌ Error: ELEVENLABS_API_KEY environment variable not set")
+        print("Error: ELEVENLABS_API_KEY environment variable not set")
         print("   Set it with: export ELEVENLABS_API_KEY='your-key-here'")
         sys.exit(1)
     return ElevenLabs(api_key=api_key)
@@ -172,12 +172,12 @@ def generate_speech(
         if output_path:
             with open(output_path, "wb") as f:
                 f.write(audio_bytes)
-            print(f"✅ Audio saved to: {output_path}")
+            print(f"Audio saved to: {output_path}")
         
         return audio_bytes
         
     except Exception as e:
-        print(f"❌ Error generating speech: {e}")
+        print(f"Error generating speech: {e}")
         raise
 
 
@@ -203,12 +203,12 @@ def generate_sound_effect(
         if output_path:
             with open(output_path, "wb") as f:
                 f.write(audio_bytes)
-            print(f"✅ Sound effect saved to: {output_path}")
+            print(f"Sound effect saved to: {output_path}")
         
         return audio_bytes
         
     except Exception as e:
-        print(f"⚠️ Sound effect generation failed: {e}")
+        print(f"Warning: Sound effect generation failed: {e}")
         return b""
 
 
@@ -234,12 +234,12 @@ def play_audio(audio_bytes: bytes):
         os.unlink(temp_path)
         
     except Exception as e:
-        print(f"⚠️ Could not play audio: {e}")
+        print(f"Warning: Could not play audio: {e}")
 
 
 def list_voices(client: ElevenLabs):
     """List available voices."""
-    print("\n🎤 Available Voices:\n")
+    print("\nAvailable Voices:\n")
     print(f"{'Name':<20} {'Voice ID':<30} {'Labels'}")
     print("-" * 70)
     
@@ -251,12 +251,12 @@ def list_voices(client: ElevenLabs):
     except Exception as e:
         print(f"Error listing voices: {e}")
     
-    print("\n💡 Tip: Use --voice VOICE_ID to select a specific voice")
+    print("\nTip: Use --voice VOICE_ID to select a specific voice")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🎭 MoodCast - Transform text into emotionally expressive audio with ambient soundscapes",
+        description="MoodCast - Transform text into emotionally expressive audio with ambient soundscapes",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -296,7 +296,7 @@ Examples:
     
     if not args.text:
         parser.print_help()
-        print("\n❌ Error: --text is required")
+        print("\nError: --text is required")
         sys.exit(1)
     
     voice_id = args.voice or (MOOD_VOICES.get(args.mood) if args.mood else None) or DEFAULT_VOICE_ID
@@ -308,13 +308,13 @@ Examples:
         text = enhance_text_with_emotions(text, args.mood)
     
     if args.show_enhanced:
-        print(f"\n📝 Enhanced text:\n{text}\n")
+        print(f"\nEnhanced text:\n{text}\n")
     
     chunks = split_text_for_api(text)
     if len(chunks) > 1:
-        print(f"📄 Text split into {len(chunks)} chunks")
+        print(f"Text split into {len(chunks)} chunks")
     
-    print(f"🎭 Generating expressive audio...")
+    print(f"Generating expressive audio...")
     all_audio = b""
     
     for i, chunk in enumerate(chunks):
@@ -325,7 +325,7 @@ Examples:
     
     ambient_audio = b""
     if args.ambient:
-        print(f"🎵 Generating ambient soundscape...")
+        print(f"Generating ambient soundscape...")
         ambient_prompt = args.ambient
         ambient_audio = generate_sound_effect(
             client, 
@@ -333,29 +333,29 @@ Examples:
             min(args.ambient_duration, 30.0)
         )
     elif args.mood and os.environ.get("MOODCAST_AUTO_AMBIENT"):
-        print(f"🎵 Generating mood-matched ambient...")
+        print(f"Generating mood-matched ambient...")
         ambient_prompt = AMBIENT_PRESETS.get(args.mood, AMBIENT_PRESETS["default"])
         ambient_audio = generate_sound_effect(client, ambient_prompt, 15.0)
     
     if args.output:
         with open(args.output, "wb") as f:
             f.write(all_audio)
-        print(f"✅ Speech saved to: {args.output}")
+        print(f"Speech saved to: {args.output}")
         
         if ambient_audio:
             ambient_path = args.output.replace(".mp3", "_ambient.mp3")
             with open(ambient_path, "wb") as f:
                 f.write(ambient_audio)
-            print(f"✅ Ambient saved to: {ambient_path}")
+            print(f"Ambient saved to: {ambient_path}")
     else:
-        print("🔊 Playing audio...")
+        print("Playing audio...")
         play_audio(all_audio)
         
         if ambient_audio:
-            print("🔊 Playing ambient...")
+            print("Playing ambient...")
             play_audio(ambient_audio)
     
-    print("\n✨ MoodCast complete!")
+    print("\nMoodCast complete!")
 
 
 if __name__ == "__main__":
