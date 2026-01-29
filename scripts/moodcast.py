@@ -3,8 +3,8 @@
 MoodCast - Emotionally Expressive Audio Generator
 Transform any text into emotionally expressive audio with ambient soundscapes using ElevenLabs v3 audio tags and Sound Effects API.
 
-Built for #ClawdEleven Hackathon
 Author: ashutosh887 (https://github.com/ashutosh887)
+Built for #ClawdEleven Hackathon
 """
 
 import os
