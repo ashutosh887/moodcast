@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+.venv/
+env/
+
+# API Keys (NEVER commit these!)
+.env
+*.key
+*_key.txt
+
+# Generated audio files
+*.mp3
+*.wav
+*.ogg
+*.m4a
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
