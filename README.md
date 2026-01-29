@@ -44,11 +44,14 @@ I can't believe it.
 ### 1. Install the Skill
 
 ```bash
-# Clone to your Moltbot skills directory
+# Option 1: Clone to your Moltbot skills directory
 git clone https://github.com/ashutosh887/moodcast ~/.clawdbot/skills/moodcast
 
-# Or install via ClawdHub (coming soon)
-clawdhub install moodcast
+# Option 2: Install via MoltHub (recommended)
+npx molthub@latest install moodcast
+
+# Option 3: Install to workspace (for per-agent skills)
+# After installing, move to workspace or use git clone method
 ```
 
 ### 2. Set Your API Key
@@ -64,6 +67,7 @@ Or add to `~/.clawdbot/moltbot.json`:
     "entries": {
       "moodcast": {
         "enabled": true,
+        "apiKey": "your-api-key-here",
         "env": {
           "ELEVENLABS_API_KEY": "your-api-key-here"
         }
@@ -73,11 +77,18 @@ Or add to `~/.clawdbot/moltbot.json`:
 }
 ```
 
+Note: `apiKey` automatically maps to `ELEVENLABS_API_KEY` when the skill declares `primaryEnv`.
+
 ### 3. Use It!
 
-**Via Moltbot (WhatsApp/Telegram/Discord):**
+**Via Moltbot (WhatsApp/Telegram/Discord/iMessage):**
 ```
 Hey Molty, moodcast this: "It was a dark and stormy night..."
+```
+
+Or use the slash command:
+```
+/moodcast "It was a dark and stormy night..."
 ```
 
 **Via Command Line:**
@@ -213,6 +224,7 @@ MoodCast automatically detects emotions and inserts these tags:
     "entries": {
       "moodcast": {
         "enabled": true,
+        "apiKey": "xi-xxxxxxxxxxxx",
         "env": {
           "ELEVENLABS_API_KEY": "xi-xxxxxxxxxxxx",
           "MOODCAST_AUTO_AMBIENT": "true"
@@ -222,6 +234,8 @@ MoodCast automatically detects emotions and inserts these tags:
   }
 }
 ```
+
+Note: `apiKey` is a convenience field that maps to `ELEVENLABS_API_KEY` when `primaryEnv` is set in the skill metadata.
 
 ---
 
@@ -250,8 +264,10 @@ This skill demonstrates **deep integration** with multiple ElevenLabs APIs:
 
 ```
 moodcast/
-├── SKILL.md           # Moltbot skill definition
-├── README.md          # This file
+├── SKILL.md           # Moltbot skill definition (AgentSkills format)
+├── README.md          # Project documentation
+├── requirements.txt   # Python dependencies
+├── .gitignore         # Git ignore rules
 ├── scripts/
 │   └── moodcast.py    # Main Python script
 └── examples/
@@ -261,6 +277,15 @@ moodcast/
     ├── calm.txt       # Peaceful scene example
     └── story.txt      # Adventure story example
 ```
+
+## Skill Installation Locations
+
+Moltbot loads skills from three locations (in precedence order):
+1. **Workspace skills**: `<workspace>/skills/moodcast` (per-agent, highest precedence)
+2. **Managed skills**: `~/.clawdbot/skills/moodcast` (shared across agents)
+3. **Bundled skills**: Shipped with Moltbot install (lowest precedence)
+
+Use `npx molthub@latest install moodcast` to install to the managed directory, or clone directly to your workspace for per-agent installation.
 
 ---
 

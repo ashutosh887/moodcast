@@ -19,6 +19,8 @@ Use MoodCast when the user wants to:
 
 **Trigger phrases:** "read this dramatically", "make this sound good", "create audio for", "moodcast this", "read with emotion", "narrate this"
 
+**Slash command:** `/moodcast`
+
 ## Core Capabilities
 
 ### 1. Emotion-Aware Text Enhancement
