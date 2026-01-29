@@ -140,6 +140,54 @@ python3 moodcast.py --text "Plain text" --no-enhance
 
 ---
 
+## Demo Examples
+
+Here are some real-world examples showcasing MoodCast's capabilities:
+
+### Example 1: Dramatic News with Enhanced Text Display
+Shows emotion tags being added automatically, then plays expressive audio.
+
+```bash
+# If installed via MoltHub (managed skills)
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." --mood dramatic --show-enhanced
+
+# If cloned to workspace (workspace skills)
+python3 ./skills/moodcast/scripts/moodcast.py --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." --mood dramatic --show-enhanced
+
+# If running from repo root
+python3 scripts/moodcast.py --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." --mood dramatic --show-enhanced
+```
+
+### Example 2: Scary Story with Ambient Sound
+Demonstrates two APIs working together - TTS + Sound Effects API.
+
+```bash
+# If installed via MoltHub (managed skills)
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" --mood scary --ambient "creepy horror atmosphere wind howling"
+
+# If cloned to workspace (workspace skills)
+python3 ./skills/moodcast/scripts/moodcast.py --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" --mood scary --ambient "creepy horror atmosphere wind howling"
+
+# If running from repo root
+python3 scripts/moodcast.py --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" --mood scary --ambient "creepy horror atmosphere wind howling"
+```
+
+### Pre-generating Audio Files
+
+For demos or presentations, you can pre-generate audio files:
+
+```bash
+# Generate dramatic news audio
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "Breaking news! Scientists have just discovered something absolutely incredible. This could change everything we thought we knew about the universe... I can't believe it's finally happening." --mood dramatic --output demo1.mp3
+
+# Generate scary story with ambient sound
+python3 ~/.clawdbot/skills/moodcast/scripts/moodcast.py --text "It was a dark and stormy night. The old house creaked and groaned. Something moved in the shadows... Who's there?" --mood scary --ambient "creepy horror atmosphere wind howling" --output demo2.mp3
+```
+
+*Note: Adjust the path based on your installation method (managed skills, workspace skills, or repo root).*
+
+---
+
 ## Supported Audio Tags (Eleven v3)
 
 MoodCast automatically detects emotions and inserts these tags:
